@@ -1,10 +1,3 @@
-!pip install requests
-!pip install beautifulsoup4
-!pip install transformers
-!pip install bert-extractive-summarizer
-!pip install fpdf
-
-
 import streamlit as st
 import requests
 from bs4 import BeautifulSoup
