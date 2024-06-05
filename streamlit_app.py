@@ -12,7 +12,6 @@ from summarizer import Summarizer
 import os
 import re
 
-@st.cache_data
 def parse_html_file(file_path):
     try:
         with open(file_path, "r", encoding="utf-8") as file:
@@ -23,7 +22,6 @@ def parse_html_file(file_path):
         print(f"An error occurred: {e}")
         return None
 
-@st.cache_data
 def scrape_amazon_product(url):
     global revList
     HEADERS = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36', 'Accept-Language': 'en-US, en;q=0.5'}
@@ -133,7 +131,7 @@ def parallelize_summarization_async(reviews, num_cores):
             results.append((summary, recommendation))
     return results
 
-@st.cache_data
+
 def CalcReviews(reviews):
     model_name = "bhadresh-savani/distilbert-base-uncased-sentiment-sst2"
     output_file = "mainResult.csv"
@@ -169,7 +167,7 @@ def CalcReviews(reviews):
     df.to_csv("Rev.csv", index=False)
     return data
 
-@st.cache_data
+
 # Function to generate PDF report
 def generate_pdf(product_data, review_data):
     pdf = FPDF()
