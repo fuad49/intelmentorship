@@ -188,7 +188,7 @@ def generate_pdf(product_data, review_data):
     csv_file2 = "Pro.csv"
     df2 = pd.read_csv(csv_file2)
 
-    for column in ['product_name', 'Category', 'product_description', 'Reviews', 'Ratings']:
+    for column in ['product_name', 'Category','Reviews', 'Ratings']:
       context += f"{column}: {df2.iloc[0][column]}\n"
 
     cleaned_string = re.sub(r'[^a-zA-Z0-9\s.:]', '', context)
